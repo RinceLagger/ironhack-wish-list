@@ -1,24 +1,26 @@
 import React from "react";
 
-function App() {
+import List from "./components/List/List";
+import InputForm from "./components/Input/Input";
 
-    return (
-        <div className="container">
-            <h1>App</h1>
-            <div className="cards-container">
-                <div className="card">
-                    <button className="button">remove</button>
-                </div>
-                <div className="card">
-                    <button className="button">remove</button>
-                </div>
-                <div className="card">
-                    <button className="button">remove</button>
-                </div>
-            </div>
-            <form action="" className="form"></form>
-        </div>
-    )
+const wishes = [{ wish: "Nvidia 3090" }];
+
+function App() {
+  const [wishList, setwishList] = React.useState(wishes);
+
+  return (
+    <div className="container">
+      <h1>App</h1>
+      <div className="cards-container">
+        <List wishList={wishList} setwishList={setwishList} />
+      </div>
+      <InputForm
+        className="InputForm"
+        wishList={wishList}
+        setwishList={setwishList}
+      />
+    </div>
+  );
 }
 
-export default App
+export default App;
